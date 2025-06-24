@@ -1,0 +1,64 @@
+[
+  {
+    "title": "Vehicle Subscriptions",
+    "description": "Affordable, all-inclusive vehicle plans designed to meet your needs:",
+    "bullets": [
+      "Electric Motorcycles, CNG Tricycles, and Fuel-Efficient Bikes",
+      "No deposit required",
+      "Insurance, servicing, and digital repayment tools included"
+    ],
+    "icon": "briefcase"
+  },
+  {
+    "title": "Captain Training & Digital Onboarding",
+    "description": "We equip riders ('Captains') with essential skills:",
+    "bullets": [
+      "24/7 roadside & customer support",
+      "Smartphone access program",
+      "Fuel top-up & maintenance access",
+      "Transparent repayment plans"
+    ],
+    "icon": "user-shield"
+  },
+  {
+    "title": "Tech-Powered Fleet Management",
+    "description": "Our technology ensures uptime and safety:",
+    "bullets": [
+      "Telematics, theft recovery, and remote immobilization",
+      "Predictive maintenance alerts",
+      "Digital repayment monitoring and driver scoring"
+    ],
+    "icon": "bike"
+  },
+  {
+    "title": "Comprehensive Rider Support",
+    "description": "Your journey with us is supported every step of the way:",
+    "bullets": [
+      "24/7 roadside & customer support",
+      "Smartphone access program",
+      "Fuel top-up & maintenance access",
+      "Transparent repayment plans"
+    ],
+    "icon": "shield"
+  },
+  {
+    "title": "Business & Platform Partnerships",
+    "description": "Our B2B solutions help platforms scale seamlessly:",
+    "bullets": [
+      "Pre-vetted, trained, and insured riders",
+      "Real-time data dashboards for performance tracking",
+      "Eco-friendly fleet options for logistics & delivery"
+    ],
+    "icon": "handshake"
+  },
+  {
+    "title": "Asset Management Services",
+    "description": "Invest in bikes/tricycles while we handle:",
+    "bullets": [
+      "Rider recruitment & daily operations",
+      "Maintenance & payment collection",
+      "Transparent revenue sharing (passive income from your assets)"
+    ],
+    "icon": "money-cheque"
+  }
+]

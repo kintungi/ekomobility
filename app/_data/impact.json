@@ -1,0 +1,22 @@
+[
+  {
+    "title": "Financial inclusion",
+    "desc": "Expanding access to vehicle ownership for unbanked communities.",
+    "icon": "bolt"
+  },
+  {
+    "title": "Job creation",
+    "desc": "Unlocking income opportunities across Tanzania's growing gig economy.",
+    "icon": "bolt"
+  },
+  {
+    "title": "Sustainability",
+    "desc": "Reducing urban emmisions with EVs $ CNGs",
+    "icon": "bolt"
+  },
+  {
+    "title": "Gender inclusion",
+    "desc": "Onboarding and support programs that empower more women to join the mobility sector.",
+    "icon": "bolt"
+  }
+]
