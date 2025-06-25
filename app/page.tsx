@@ -9,6 +9,7 @@ import FeatureCard from "./_components/FeatureCard";
 import MissionVisionCard from "./_components/MissionVisionCard";
 import { IconType } from "./_lib/types";
 import Pill from "./_components/Pill";
+import Form from "./_components/Form";
 
 export default function Home() {
   return (
@@ -178,101 +179,7 @@ export default function Home() {
             financial freedom.
           </p>
         </div>
-        <form className="mx-auto grid grid-cols-1 gap-2 gap-y-10 max-w-[924px]">
-          <div className="wrapper gap-x-[128px] gap-y-[64px] grid grid-cols-2 grid-rows-2">
-            <section className="personal-infomation form-section">
-              <p className="form-section-title">Personal information</p>
-              <div className="input-wrapper">
-                <p className="form-input-title">Full name / Jina kamili</p>
-                <input
-                  type="text"
-                  placeholder="Juma Rajabu"
-                  className="input"
-                />
-              </div>
-              <div className="input-wrapper">
-                <p className="form-input-title">Phone number / Namba ya simu</p>
-                <input
-                  type="number"
-                  placeholder="+255 692000000"
-                  className="input"
-                />
-              </div>
-            </section>
-
-            <section className="location form-section">
-              <p className="form-section-title">Location</p>
-              <div className="input-wrapper">
-                <p className="form-input-title">City / Town / Mji / Jiji</p>
-                <input
-                  type="text"
-                  placeholder="eg Dar es salaam"
-                  className="input"
-                />
-              </div>
-              <div className="input-wrapper">
-                <p className="form-input-title">Ward / Area / Kata / Tarafa</p>
-                <input
-                  type="number"
-                  placeholder="eg Kisukulu"
-                  className="input"
-                />
-              </div>
-            </section>
-
-            <section className="riding-experience form-section">
-              <p className="form-section-title">Riding experience</p>
-              <div className="input-wrapper">
-                <p className="form-input-title">
-                  Do you have a valid driving license? / Je, una leseni ya
-                  udereva?
-                </p>
-                <input
-                  type="text"
-                  placeholder="eg Dar es salaam"
-                  className="input"
-                />
-              </div>
-              <div className="input-wrapper">
-                <p className="form-input-title">
-                  Years of Riding Experience / Miaka ya uzoefu wa udereva
-                </p>
-                <input
-                  type="number"
-                  placeholder="eg Kisukulu"
-                  className="input"
-                />
-              </div>
-            </section>
-
-            <section className="Additional information form-section">
-              <p className="form-section-title">Additional information</p>
-              <div className="input-wrapper">
-                <p className="form-input-title">
-                  Do you own a smartphone? / Unamiliki simu janja?
-                </p>
-                <input
-                  type="text"
-                  placeholder="eg Dar es salaam"
-                  className="input"
-                />
-              </div>
-              <div className="input-wrapper">
-                <p className="form-input-title">
-                  How did you hear about us? (Social Media, Word of Mouth,
-                  Referral, Roadshow, Other) / Ni wapi ulisikia kuhusu sisi?
-                </p>
-                <input
-                  type="number"
-                  placeholder="eg Kisukulu"
-                  className="input"
-                />
-              </div>
-            </section>
-          </div>
-
-          <Button>Submit</Button>
-        </form>
+        <Form />
       </section>
     </main>
   );
