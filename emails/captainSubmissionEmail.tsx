@@ -45,10 +45,13 @@ const captainSubmissionEmail: React.FC<Readonly<EmailTemplateProps>> = ({
 
       <Container style={{ maxWidth: "500px" }}>
         <Img
-          src={"/images/ekomobility_logo.png"}
+          src={
+            "https://raw.githubusercontent.com/kintungi/ekomobility/aca374331d9e5c52a09578db02f3fe718ade207b/public/images/ekomobility_logo.png?token=GHSAT0AAAAAADGG2GSUWJWSO4KCCPQOELEW2C36WSQ"
+          }
           alt="EkoMobility logo"
           height={32}
           width={158.6}
+          style={{ marginBottom: "64px" }}
         />
         <p>
           Hi, My name is {name}, I would like to become a captain. Please
