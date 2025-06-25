@@ -3,7 +3,8 @@
 import { z } from "zod";
 import { Resend } from "resend";
 import { env } from "@/env.mjs";
-import { EmailTemplate } from "../_components/EmailTemplate";
+import CaptainSubmissionEmail from "@/emails/CaptainSubmissionEmail";
+// import captainSubmissionEmail  from "@/emails/captainSubmissionEmail";
 
 const resend = new Resend(env.RESEND_API_KEY);
 
@@ -76,15 +77,42 @@ export async function driverApply(
 
   if (success) {
     console.log("FORMDATA", data);
+  }
 
-    const { data: resendData, error } = await resend.emails.send({
-      from: "EkoMobility <onboarding@resend.dev>",
-      //   from: "Acme <onboarding@resend.dev>",
-      to: ["franciskintungi@gmail.com"],
-      //   to: ["delivered@resend.dev"],
-      subject: "Form submission(ekomobility.co)",
-      react: await EmailTemplate({ ...data }),
-    });
+  const { data: resendData, error: resendError } = await resend.emails.send({
+    from: "EkoMobility <onboarding@resend.dev>",
+    //   from: "Acme <onboarding@resend.dev>",
+    to: ["franciskintungi@gmail.com"],
+    //   to: ["delivered@resend.dev"],
+    subject: "Form submission(ekomobility.co)",
+    react: await CaptainSubmissionEmail({ ...data }),
+    //   react: await EmailTemplate({ ...data }),
+  });
+
+  if (resendError) {
+    return {
+      errors: {
+        root: ["Failed to submit"],
+        name: [],
+        phone: [],
+        city: [],
+        ward: [],
+        driver_license: [],
+        riding_experience: [],
+        own_smartphone: [],
+        heard_about_us: [],
+      },
+      data: {
+        name: "",
+        phone: "",
+        city: "",
+        ward: "",
+        driver_license: "",
+        riding_experience: "",
+        own_smartphone: "",
+        heard_about_us: "",
+      },
+    };
   }
 
   return {

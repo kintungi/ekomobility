@@ -153,16 +153,16 @@
     @apply bg-background text-foreground;
   }
   h1 {
-    @apply font-sans font-bold text-5xl tracking-[-0.04em] text-accent;
+    @apply font-sans font-bold md:text-5xl text-[32px] tracking-[-0.04em] text-accent;
   }
   h2 {
-    @apply font-sans font-bold text-4xl text-accent tracking-[-0.04em];
+    @apply font-sans font-bold text-[28px] md:text-4xl text-accent tracking-[-0.04em];
   }
   h3 {
-    @apply font-sans font-bold text-2xl text-accent tracking-[-0.04em];
+    @apply font-sans font-bold text-[22px] md:text-2xl text-accent tracking-[-0.04em];
   }
   p {
-    @apply font-sans font-normal text-[1.125rem];
+    @apply font-sans font-normal text-[1rem] md:text-[1.125rem];
   }
 }
 @layer {

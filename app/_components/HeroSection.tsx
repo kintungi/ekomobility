@@ -48,8 +48,8 @@ export default function HeroSection() {
         />
         {sliderImages &&
           sliderImages.map((image, i) => (
-            <SwiperSlide>
-              <div>
+            <SwiperSlide className="h-full">
+              <div className="h-full">
                 <img
                   src={image.url}
                   alt={image.alt}

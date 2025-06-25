@@ -34,7 +34,7 @@ function Form() {
       action={action}
       className="mx-auto grid grid-cols-1 gap-2 gap-y-10 max-w-[924px]"
     >
-      <div className="wrapper gap-x-[128px] gap-y-[64px] grid grid-cols-2 grid-rows-2">
+      <div className="wrapper gap-x-[128px] gap-y-[64px] grid grid-cols-1 lg:grid-cols-2 lg:grid-rows-2">
         <section className="personal-infomation form-section">
           <p className="form-section-title">Personal information</p>
           <div className="input-wrapper">
@@ -306,7 +306,16 @@ function Form() {
         </section>
       </div>
 
-      <Button type="submit">{isPending ? "Submitting" : "Submit"}</Button>
+      <div className="w-full">
+        <Button className="w-full" type="submit">
+          {isPending ? "Submitting" : "Submit"}
+        </Button>
+        {state?.errors?.root && (
+          <div className="text-[12px] text-destructive">
+            {state.errors.root[0]}
+          </div>
+        )}
+      </div>
     </form>
   );
 }
