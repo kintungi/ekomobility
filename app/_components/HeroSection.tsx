@@ -1,11 +1,15 @@
 "use client";
-import React from "react";
+import React, { useRef } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Pagination, EffectFade, Autoplay } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/effect-fade";
 import "swiper/css/pagination";
 import { Button } from "@/components/ui/button";
+import gsap from "gsap";
+import { useGSAP } from "@gsap/react";
+
+gsap.registerPlugin(useGSAP);
 
 const sliderImages = [
   {
@@ -27,8 +31,53 @@ const sliderImages = [
 ];
 
 export default function HeroSection() {
+  const container = useRef<HTMLDivElement | null>(null);
+  useGSAP(
+    () => {
+      const tl = gsap
+        .timeline({ paused: true })
+        .fromTo(
+          ".header",
+          {
+            autoAlpha: 0,
+            y: 64,
+            duration: 0.6,
+            ease: "power1.inOut",
+          },
+          { autoAlpha: 1, y: 0 }
+        )
+        .fromTo(
+          ".desc",
+          {
+            autoAlpha: 0,
+            y: 64,
+            duration: 0.6,
+            ease: "power1.inOut",
+          },
+          { autoAlpha: 1, y: 0 },
+          "<+0.1"
+        )
+        .fromTo(
+          ".cta",
+          {
+            autoAlpha: 0,
+            y: 64,
+            duration: 0.6,
+            ease: "power1.inOut",
+          },
+          { autoAlpha: 1, y: 0 },
+          "<+0.2"
+        );
+
+      tl.play();
+    },
+    { scope: container }
+  );
   return (
-    <div className="relative w-full h-[calc(100dvh-80px)] flex flex-col justify-between">
+    <div
+      ref={container}
+      className="relative w-full h-[calc(100dvh-80px)] flex flex-col justify-between"
+    >
       <Swiper
         modules={[Pagination, EffectFade, Autoplay]}
         effect="fade"
@@ -64,13 +113,13 @@ export default function HeroSection() {
           ))}
       </Swiper>
 
-      <div className="absolute z-[10] grid place-items-center w-full h-full margin">
+      <div className="absolute z-[10] grid place-items-center w-full h-[calc(100%-80px)] margin">
         <div className="container">
-          <div className=" max-w-[830px] flex flex-col gap-8  h-min top-0 left-0 inset-0 justify-center items-start text-white bg-opacity-30">
-            <h1 className=" font-sans text-left font-bold mb-4 max-w-[532.62px]">
+          <div className=" max-w-[830px] flex flex-col gap-6 md:gap-8  h-min top-0 left-0 inset-0 justify-center items-start text-white bg-opacity-30">
+            <h1 className="header opacity-0 font-sans text-left font-bold  max-w-[532.62px]">
               Driving Sustainability, Empowering Lives.
             </h1>
-            <p className="text-left max-w-[532.62px]">
+            <p className="desc opacity-0 text-left max-w-[532.62px]">
               Welcome to EkoMobility, Tanzania’s premier tech-driven mobility
               platform, designed to empower gig workers and mobility
               entrepreneurs with access to affordable, energy-efficient
@@ -78,7 +127,8 @@ export default function HeroSection() {
               connect the dots between access, technology, and sustainability to
               transform Africa's mobility landscape.
             </p>
-            <Button>Become a captain</Button>
+            <Button className="cta opacity-0">Become a captain</Button>
+            {/* <div className="cta h-[40px] w-[200px] rounded-full bg-accent"></div> */}
           </div>
         </div>
       </div>

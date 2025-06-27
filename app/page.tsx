@@ -1,3 +1,4 @@
+"use client";
 import Image from "next/image";
 import HeroSection from "./_components/HeroSection";
 import { Button } from "@/components/ui/button";
@@ -10,23 +11,322 @@ import MissionVisionCard from "./_components/MissionVisionCard";
 import { IconType } from "./_lib/types";
 import Pill from "./_components/Pill";
 import Form from "./_components/Form";
+import gsap from "gsap";
+import ScrollTrigger from "gsap/dist/ScrollTrigger";
+import { useGSAP } from "@gsap/react";
+import { useRef } from "react";
+import { CustomBounce } from "gsap/CustomBounce";
+import CustomEase from "gsap/CustomEase";
+gsap.registerPlugin(useGSAP);
+gsap.registerPlugin(ScrollTrigger);
+gsap.registerPlugin(CustomBounce, CustomEase);
 
 export default function Home() {
+  const container = useRef<HTMLDivElement | null>(null);
+
+  useGSAP(
+    () => {
+      const mm = gsap.matchMedia();
+
+      mm.add(
+        {
+          isMobile: "(max-width: 767px)", // below sm
+          isTablet: "(min-width: 768px) and (max-width: 1023px)",
+          isDesktop: "(min-width: 1024px)",
+        },
+        (ctx) => {
+          const { isMobile, isTablet } = ctx.conditions as {
+            isMobile: boolean;
+            isTablet: boolean;
+            isDesktop: boolean;
+          };
+          const cardTriggerStart = isMobile ? "top 90%" : "top 70%";
+          const hookTl = gsap
+            .timeline({ paused: true })
+            .fromTo(
+              ".hook1",
+              {
+                autoAlpha: 0,
+                y: 64,
+                duration: 0.6,
+                ease: "power1.inOut",
+                // scrollTrigger: {
+                //   trigger: ".hook-section",
+                //   start: "top 50%",
+                //   toggleActions: "play none none reset",
+                //   markers: true,
+                // },
+              },
+              { autoAlpha: 1, y: 0 }
+            )
+            .fromTo(
+              ".hook2",
+              {
+                autoAlpha: 0,
+                y: 64,
+                duration: 0.6,
+                ease: "power1.inOut",
+              },
+              { autoAlpha: 1, y: 0 },
+              "<+0.1"
+            )
+            .fromTo(
+              ".hook3",
+              {
+                autoAlpha: 0,
+                y: 64,
+                duration: 0.6,
+                ease: "power1.inOut",
+                // scrollTrigger: {
+                //   trigger: ".hook-section",
+                //   start: "top 50%",
+                //   toggleActions: "play none none reset",
+                //   markers: true,
+                // },
+              },
+              { autoAlpha: 1, y: 0 },
+              "<+0.2"
+            );
+
+          ScrollTrigger.create({
+            trigger: ".hook-section",
+            start: "top 60%",
+            // toggleActions: "play reset play reset",
+            toggleActions: "play none play reverse",
+            // markers: true,
+            animation: hookTl,
+            // markers: true,
+            // onEnter: () => hookTl.play(),
+            // onLeaveBack: () => hookTl.reverse(),
+
+            // animation: hookTl,
+          });
+          // hookTl.play();
+
+          //Solutions
+          gsap.utils
+            .toArray<HTMLElement>(".feature-card-one")
+            .forEach((card, i) => {
+              const tl = gsap.timeline({
+                scrollTrigger: {
+                  trigger: card,
+                  start: cardTriggerStart,
+                  toggleActions: "play none play reverse", // or "play reset play reset"
+                  // markers: true,
+                },
+              });
+
+              // set custom delay using position inside the timeline
+              const delay =
+                i === 1 || i === 4 ? 0.1 : i === 2 || i === 5 ? 0.2 : 0;
+
+              tl.from(
+                card,
+                {
+                  autoAlpha: 0,
+                  y: 64,
+                  duration: 0.6,
+                  ease: "power1.inOut",
+                },
+                delay
+              ); // 👈 delay as timeline position
+            });
+
+          //Impact
+          gsap.utils
+            .toArray<HTMLElement>(".feature-card-two")
+            .forEach((card, i) => {
+              const tl = gsap.timeline({
+                scrollTrigger: {
+                  trigger: card,
+                  start: cardTriggerStart,
+                  toggleActions: "play none play reverse", // or "play reset play reset"
+                  // markers: true,
+                },
+              });
+
+              // set custom delay using position inside the timeline
+              const delay = i === 1 || i === 3 ? 0.1 : 0;
+
+              tl.from(
+                card,
+                {
+                  autoAlpha: 0,
+                  y: 64,
+                  duration: 0.6,
+                  ease: "power1.inOut",
+                },
+                delay
+              ); // 👈 delay as timeline position
+            });
+
+          //Why choose us
+          gsap.utils
+            .toArray<HTMLElement>(".feature-card-three")
+            .forEach((card, i) => {
+              const tl = gsap.timeline({
+                scrollTrigger: {
+                  trigger: card,
+                  start: cardTriggerStart,
+                  toggleActions: "play none play reverse", // or "play reset play reset"
+                  // markers: true,
+                },
+              });
+
+              // set custom delay using position inside the timeline
+              const delay =
+                i === 1 || i === 4 ? 0.1 : i === 2 || i === 5 ? 0.2 : 0;
+
+              tl.from(
+                card,
+                {
+                  autoAlpha: 0,
+                  y: 64,
+                  duration: 0.6,
+                  ease: "power1.inOut",
+                },
+                delay
+              ); // 👈 delay as timeline position
+            });
+
+          //Pills
+          const pillTL = gsap.timeline({
+            scrollTrigger: {
+              trigger: ".delivery",
+              start: isTablet ? "top 50%" : "top 30%",
+              // markers: true,
+              toggleActions: "play none play reverse",
+            },
+          });
+
+          pillTL
+            .from(
+              ".pill1",
+              {
+                // x: 300,
+                left: 0,
+                autoAlpha: 0,
+                duration: 0.5,
+                ease: "elastic.out(1,0.8)",
+              },
+              0
+            )
+            .from(
+              ".pill2",
+              {
+                // x: -300,
+                right: 0,
+                autoAlpha: 0,
+
+                duration: 0.5,
+                ease: "elastic.out(1,0.8)",
+              },
+              0.1
+            )
+            .from(
+              ".pill3",
+              {
+                // x: 300,
+                left: 0,
+                autoAlpha: 0,
+
+                duration: 0.5,
+                ease: "elastic.out(1,0.8)",
+              },
+              0.2
+            )
+            .from(
+              ".pill4",
+              {
+                // x: -300,
+                right: 0,
+                autoAlpha: 0,
+
+                duration: 0.5,
+                ease: "elastic.out(1,0.8)",
+              },
+              0.3
+            )
+            .from(
+              ".pill5",
+              {
+                // y: -300,
+                bottom: 0,
+                autoAlpha: 0,
+
+                duration: 0.5,
+                ease: "elastic.out(1,0.8)",
+              },
+              0.4
+            );
+
+          //about
+          const aboutTl = gsap.timeline({
+            scrollTrigger: {
+              trigger: ".about",
+              start: cardTriggerStart,
+              toggleActions: "play none play reverse", // or "play reset play reset"
+              // markers: true,
+            },
+          });
+
+          aboutTl.from(".about", {
+            autoAlpha: 0,
+            y: 64,
+            duration: 0.6,
+            ease: "power1.inOut",
+          });
+
+          //mission_vision
+          gsap.utils
+            .toArray<HTMLElement>(".mission-vision")
+            .forEach((card, i) => {
+              const tl = gsap.timeline({
+                scrollTrigger: {
+                  trigger: card,
+                  start: cardTriggerStart,
+                  toggleActions: "play none play reverse", // or "play reset play reset"
+                  // markers: true,
+                },
+              });
+
+              // set custom delay using position inside the timeline
+              const delay =
+                i === 1 || i === 4 ? 0.1 : i === 2 || i === 5 ? 0.2 : 0;
+
+              tl.from(
+                card,
+                {
+                  autoAlpha: 0,
+                  y: 64,
+                  duration: 0.6,
+                  ease: "power1.inOut",
+                },
+                delay
+              ); // 👈 delay as timeline position
+            });
+        }
+      );
+    },
+    { scope: container }
+  );
   return (
-    <main>
+    <main ref={container}>
       <HeroSection />
       <section className="hook margin grid place-items-center py-[96px]">
         <div className="container">
-          <div className="wrapper flex flex-col gap-8">
-            <h2 className="max-w-[1027px]  font-semibold">
+          <div className="wrapper hook-section flex flex-col gap-8">
+            <h2 className="max-w-[1027px] hook1 opacity-0  font-semibold">
               With EkoMobility, you don’t just rent a vehicle; you unlock a
               platform of support, training, and decent income generation.
             </h2>
-            <p className="max-w-[586px]">
+            <p className="max-w-[586px] hook2 opacity-0">
               Our flexible lease-to-own model, backed by technology, ensures you
               drive toward ownership while earning every day.
             </p>
-            <Button className="w-min">Become a captain</Button>
+            <div className="hook3 opacity-0">
+              <Button className="w-min  ">Become a captain</Button>
+            </div>
           </div>
         </div>
       </section>
@@ -36,6 +336,7 @@ export default function Home() {
           {solutions &&
             solutions.map((solution, i) => (
               <FeatureCard
+                className="feature-card-one"
                 key={i}
                 icon={solution.icon as IconType}
                 title={solution.title}
@@ -47,8 +348,8 @@ export default function Home() {
       </section>
       <section className="about-us bg-white margin grid place-items-center py-16">
         <div className="container flex flex-col gap-6">
-          <div className="about hidden  bg-primary/50 p-8 h-[508px] rounded-[16px] gap-6 md:flex">
-            <div className="w-[50%] py-8 flex flex-col justify-between">
+          <div className="about hidden  bg-primary/50 p-8 h-[508px] rounded-[16px] gap-6 md:grid grid-cols-2">
+            <div className=" py-8 flex flex-col justify-between">
               <svg
                 width="48"
                 height="48"
@@ -63,7 +364,7 @@ export default function Home() {
               </svg>
               <div className="flex flex-col gap-8">
                 <h2>Get to know more about Ekomobility</h2>
-                <p className="text-secondary">
+                <p className="text-secondary max-w-[480px]">
                   EkoMobility is a Tanzanian-born platform transforming urban
                   mobility through technology and sustainability. We provide
                   affordable, clean vehicles and digital tools that empower gig
@@ -76,7 +377,7 @@ export default function Home() {
               src={"/images/highfive.jpeg"}
               width={612}
               height={445}
-              className="rounded-[8px] w-[50%] object-cover"
+              className="rounded-[8px] h-full object-cover"
             />
           </div>
           <div className="about mobile gap-6 flex-col md:hidden   flex">
@@ -115,6 +416,7 @@ export default function Home() {
             {about &&
               about.map((item, i) => (
                 <MissionVisionCard
+                  className="mission-vision"
                   key={i}
                   description={item.description}
                   icon={item.icon as IconType}
@@ -127,9 +429,10 @@ export default function Home() {
       <section id="impact" className="margin py-12  grid place-items-center">
         <div className="container flex flex-col gap-16">
           <h2 className="mb-4 text-center">Our impact</h2>
-          <section className="flex flex-col items-center lg:flex-row gap-6">
+          <section className="grid grid-cols-1 items-center lg:grid-cols-2 gap-6">
+            {/* <section className="flex bg-black flex-col items-center lg:flex-row gap-6"> */}
             <Image
-              className="object-cover w-full rounded-2xl"
+              className="object-cover w-full lg:h-full rounded-2xl"
               src={"/images/graduates.jpeg"}
               alt="graduate drivers"
               height={479}
@@ -139,7 +442,7 @@ export default function Home() {
               {impact &&
                 impact.map((item, i) => (
                   <FeatureCard
-                    className="w-full"
+                    className="w-full feature-card-two"
                     variant={2}
                     key={i}
                     description={item.desc}
@@ -160,23 +463,25 @@ export default function Home() {
             emissions, EkoMobility is your transportation partner.
           </p>
         </div>
-        <section className="flowery margin w-full grid place-items-center">
-          <div className="container w-full py-16 relative">
-            <Pill className="absolute hidden md:grid right-[48px] top-[128px] ">
-              E-commerce
-            </Pill>
-            <Pill className="absolute hidden md:grid right-[128px] bottom-[128px] ">
-              Logistics
-            </Pill>
-            <Pill className="absolute hidden md:grid left-[20px] top-[156px] ">
-              Development Partners
-            </Pill>
-            <Pill className="absolute hidden md:grid left-[96px] bottom-[128px] ">
-              Ride-hailing
-            </Pill>
-            <Pill className="absolute hidden md:grid bottom-[4px] left-[50%] -translate-x-[50%]   ">
-              OEMs
-            </Pill>
+        <section className="flowery  w-full grid place-items-center">
+          <div className="desktop w-full h-max md:h-[350px] lg:h-[550px] py-16 relative">
+            <div className="absolute top-[50%] hiddem md:flex left-[50%] z-[0] overflow-visible  aspect-[6/4] md:w-[40%] lg:w-[48%] -translate-x-[50%] -translate-y-[50%] ">
+              <Pill className="absolute z-0 pill2  hidden md:grid -right-[200px] top-[15%] ">
+                E-commerce
+              </Pill>
+              <Pill className="absolute z-0  pill4 hidden md:grid -right-[160px] lg:-right-[180px] bottom-[30%] ">
+                Logistics
+              </Pill>
+              <Pill className="absolute z-0  pill1 hidden md:grid -left-[270px] lg:-left-[280px] top-[20%] ">
+                Development Partners
+              </Pill>
+              <Pill className="absolute z-0  pill3 hidden md:grid -left-[190px] bottom-[20%] ">
+                Ride-hailing
+              </Pill>
+              <Pill className="absolute z-0 pill5 hidden md:grid -bottom-[64px] left-[50%] -translate-x-[50%]   ">
+                OEMs
+              </Pill>
+            </div>
             <div className="flex flex-wrap gap-2  justify-center mb-8">
               <Pill className="md:hidden right-[48px] top-[128px] ">
                 E-commerce
@@ -199,18 +504,19 @@ export default function Home() {
               alt="delivery man"
               height={392.45}
               width={543}
-              className="rounded-2xl lg:w-[48%] justify-self-center"
+              className="rounded-2xl aspect-[6/4] md:absolute top-[50%] left-[50%] md:-translate-x-[50%] md:-translate-y-[50%] z-auto lg:z-[5] delivery md:w-[30%] lg:w-[48%] justify-self-center"
             />
           </div>
         </section>
       </section>
-      <section className="why-choose-us margin bg-primary py-16 grid place-items-center">
+      <section className="why-choose-us margin bg-primary py:8 md:py-16 grid place-items-center">
         <div className="container grid gap-16 place-items-center">
           <h2 className="text-center">Why choose us</h2>
           <div className="wrapper w-full flex gap-8 flex-wrap justify-center">
             {reasons &&
               reasons.map((item, i) => (
                 <FeatureCard
+                  className="feature-card-three"
                   description={item.desc}
                   icon={item.icon as IconType}
                   title={item.title}

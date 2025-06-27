@@ -16,7 +16,7 @@ const navLinks = [
 export default function Header() {
   const [MenuOpen, setMenuOpen] = useState<boolean>(false);
   return (
-    <header className="grid fixed w-full top-0 z-50 bg-secondary place-items-center overflow-visible h-[80px] margin">
+    <header className="grid fixed w-full top-0 z-[500] border-primary/10 border-b-[1px] bg-secondary place-items-center overflow-visible h-[80px] margin">
       <section
         className={`mobile-nav  lg:hidden fixed grid place-items-center top-0 left-0 h-[100dvh] w-full bg-accent text-primary transition-all duration-400 ${MenuOpen ? "opacity-100" : "opacity-0 pointer-events-none"}`}
       >
