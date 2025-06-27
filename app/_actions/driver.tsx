@@ -3,7 +3,7 @@
 import { z } from "zod";
 import { Resend } from "resend";
 import { env } from "@/env.mjs";
-import CaptainSubmissionEmail from "@/emails/CaptainSubmissionEmail";
+import Matrixx from "@/emails/Matrixx";
 
 const resend = new Resend(env.RESEND_API_KEY);
 
@@ -84,7 +84,7 @@ export async function driverApply(
     to: ["franciskintungi@gmail.com"],
     //   to: ["delivered@resend.dev"],
     subject: "Form submission(ekomobility.co)",
-    react: await CaptainSubmissionEmail({ ...data }),
+    react: await Matrixx({ ...data }),
     //   react: await EmailTemplate({ ...data }),
   });
 

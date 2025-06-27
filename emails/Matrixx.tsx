@@ -22,7 +22,7 @@ interface EmailTemplateProps {
   heard_about_us: string;
 }
 
-const CaptainSubmissionEmail: React.FC<Readonly<EmailTemplateProps>> = ({
+const Matrixx: React.FC<Readonly<EmailTemplateProps>> = ({
   name,
   phone,
   city,
@@ -102,4 +102,4 @@ const CaptainSubmissionEmail: React.FC<Readonly<EmailTemplateProps>> = ({
   );
 };
 
-export default CaptainSubmissionEmail;
+export default Matrixx;
