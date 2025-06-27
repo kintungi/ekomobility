@@ -17,6 +17,7 @@ import { useGSAP } from "@gsap/react";
 import { useRef } from "react";
 import { CustomBounce } from "gsap/CustomBounce";
 import CustomEase from "gsap/CustomEase";
+import Link from "next/link";
 gsap.registerPlugin(useGSAP);
 gsap.registerPlugin(ScrollTrigger);
 gsap.registerPlugin(CustomBounce, CustomEase);
@@ -301,8 +302,8 @@ export default function Home() {
                   y: 64,
                   duration: 0.6,
                   ease: "power1.inOut",
-                },
-                delay
+                }
+                // delay
               ); // 👈 delay as timeline position
             });
         }
@@ -325,12 +326,31 @@ export default function Home() {
               drive toward ownership while earning every day.
             </p>
             <div className="hook3 opacity-0">
-              <Button className="w-min  ">Become a captain</Button>
+              <Button className="w-min  " asChild>
+                <Link href={"/#become-a-captain"}>Become a captain</Link>
+              </Button>
             </div>
           </div>
         </div>
       </section>
-      <section className="solutions bg-primary margin py-[96px] grid place-items-center gap-16">
+      <section
+        id="solutions"
+        className="solutions bg-primary margin py-[96px] grid place-items-center gap-16 relative"
+      >
+        <Image
+          alt="blur"
+          src={"/images/rayblur.png"}
+          width={197.78}
+          height={1271.72}
+          className="absolute top-0 -left-[100px] md:left-[1%] w-[600px]"
+        />
+        <Image
+          alt="blur"
+          src={"/images/rayblur.png"}
+          width={197.78}
+          height={1271.72}
+          className="absolute top-0 left-[20%] hidden md:flex w-[600px]"
+        />
         <h2>Our Solutions</h2>
         <div className="wrapper justify-center gap-8 flex flex-row  flex-wrap">
           {solutions &&
@@ -346,9 +366,12 @@ export default function Home() {
             ))}
         </div>
       </section>
-      <section className="about-us bg-white margin grid place-items-center py-16">
+      <section
+        id="about"
+        className="about-us bg-white margin grid place-items-center py-16"
+      >
         <div className="container flex flex-col gap-6">
-          <div className="about hidden  bg-primary/50 p-8 h-[508px] rounded-[16px] gap-6 md:grid grid-cols-2">
+          <div className="about hidden  bg-primary/10 p-8 h-[508px] rounded-[16px] gap-6 md:grid grid-cols-2">
             <div className=" py-8 flex flex-col justify-between">
               <svg
                 width="48"
@@ -359,12 +382,12 @@ export default function Home() {
               >
                 <path
                   d="M27.979 6.28296C28.106 5.39429 27.6253 4.5299 26.8033 4.16893C25.9814 3.80796 25.0197 4.03886 24.4512 4.73364L8.54411 24.1756C8.24214 24.5446 7.93541 24.9193 7.71233 25.2487C7.50026 25.5618 7.11651 26.1736 7.10949 26.9738C7.10144 27.892 7.51434 28.7634 8.2301 29.3386C8.85386 29.8398 9.57035 29.9302 9.94698 29.9644C10.3432 30.0003 10.8274 30.0002 11.3042 30.0001L21.6931 30.0001L20.0192 41.7173C19.8923 42.6059 20.373 43.4703 21.1949 43.8313C22.0169 44.1923 22.9786 43.9614 23.547 43.2666L39.4541 23.8246C39.7561 23.4557 40.0628 23.0809 40.2859 22.7515C40.498 22.4384 40.8818 21.8266 40.8888 21.0264C40.8968 20.1082 40.4839 19.2369 39.7682 18.6617C39.1444 18.1604 38.4279 18.07 38.0513 18.0359C37.6551 17.9999 37.1708 18 36.694 18.0001L26.3052 18.0001L27.979 6.28296Z"
-                  fill="white"
+                  fill="black"
                 />
               </svg>
               <div className="flex flex-col gap-8">
                 <h2>Get to know more about Ekomobility</h2>
-                <p className="text-secondary max-w-[480px]">
+                <p className="text-primary max-w-[480px]">
                   EkoMobility is a Tanzanian-born platform transforming urban
                   mobility through technology and sustainability. We provide
                   affordable, clean vehicles and digital tools that empower gig
@@ -381,7 +404,7 @@ export default function Home() {
             />
           </div>
           <div className="about mobile gap-6 flex-col md:hidden   flex">
-            <div className="w-full py-8 flex flex-col bg-primary/50 p-8 h-[508px] rounded-[16px] gap-6 justify-between">
+            <div className="w-full py-8 flex flex-col bg-primary/10 p-8 h-[508px] rounded-[16px] gap-6 justify-between">
               <svg
                 width="48"
                 height="48"
@@ -391,12 +414,13 @@ export default function Home() {
               >
                 <path
                   d="M27.979 6.28296C28.106 5.39429 27.6253 4.5299 26.8033 4.16893C25.9814 3.80796 25.0197 4.03886 24.4512 4.73364L8.54411 24.1756C8.24214 24.5446 7.93541 24.9193 7.71233 25.2487C7.50026 25.5618 7.11651 26.1736 7.10949 26.9738C7.10144 27.892 7.51434 28.7634 8.2301 29.3386C8.85386 29.8398 9.57035 29.9302 9.94698 29.9644C10.3432 30.0003 10.8274 30.0002 11.3042 30.0001L21.6931 30.0001L20.0192 41.7173C19.8923 42.6059 20.373 43.4703 21.1949 43.8313C22.0169 44.1923 22.9786 43.9614 23.547 43.2666L39.4541 23.8246C39.7561 23.4557 40.0628 23.0809 40.2859 22.7515C40.498 22.4384 40.8818 21.8266 40.8888 21.0264C40.8968 20.1082 40.4839 19.2369 39.7682 18.6617C39.1444 18.1604 38.4279 18.07 38.0513 18.0359C37.6551 17.9999 37.1708 18 36.694 18.0001L26.3052 18.0001L27.979 6.28296Z"
-                  fill="white"
+                  fill="black"
+                  className="fill-accent"
                 />
               </svg>
               <div className="flex flex-col gap-8">
                 <h2>Get to know more about Ekomobility</h2>
-                <p className="text-secondary">
+                <p className="text-primary">
                   EkoMobility is a Tanzanian-born platform transforming urban
                   mobility through technology and sustainability. We provide
                   affordable, clean vehicles and digital tools that empower gig
@@ -509,7 +533,10 @@ export default function Home() {
           </div>
         </section>
       </section>
-      <section className="why-choose-us margin bg-primary py:8 md:py-16 grid place-items-center">
+      <section
+        id="why-choose-us"
+        className="why-choose-us margin bg-primary py:8 md:py-16 grid place-items-center"
+      >
         <div className="container grid gap-16 place-items-center">
           <h2 className="text-center">Why choose us</h2>
           <div className="wrapper w-full flex gap-8 flex-wrap justify-center">
@@ -527,7 +554,10 @@ export default function Home() {
           </div>
         </div>
       </section>
-      <section className="form margin py-16 bg-white grid gap-16 place-items-center text-center">
+      <section
+        id="become-a-captain"
+        className="form margin py-16 bg-white grid gap-16 place-items-center text-center"
+      >
         <div className="max-w-[464px] flex flex-col gap-6">
           <h2 className="">Join us today, become a captain</h2>
           <p>

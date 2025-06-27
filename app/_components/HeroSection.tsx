@@ -8,6 +8,7 @@ import "swiper/css/pagination";
 import { Button } from "@/components/ui/button";
 import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
+import Link from "next/link";
 
 gsap.registerPlugin(useGSAP);
 
@@ -127,7 +128,9 @@ export default function HeroSection() {
               connect the dots between access, technology, and sustainability to
               transform Africa's mobility landscape.
             </p>
-            <Button className="cta opacity-0">Become a captain</Button>
+            <Button className="cta opacity-0" asChild>
+              <Link href={"/#become-a-captain"}>Become a captain</Link>
+            </Button>
             {/* <div className="cta h-[40px] w-[200px] rounded-full bg-accent"></div> */}
           </div>
         </div>

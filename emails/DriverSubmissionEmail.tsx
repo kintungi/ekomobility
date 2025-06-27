@@ -22,7 +22,7 @@ interface EmailTemplateProps {
   heard_about_us: string;
 }
 
-const Matrixx: React.FC<Readonly<EmailTemplateProps>> = ({
+const DriverSubmissionEmail: React.FC<Readonly<EmailTemplateProps>> = ({
   name,
   phone,
   city,
@@ -102,4 +102,4 @@ const Matrixx: React.FC<Readonly<EmailTemplateProps>> = ({
   );
 };
 
-export default Matrixx;
+export default DriverSubmissionEmail;

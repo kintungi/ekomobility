@@ -1,6 +1,7 @@
 import React from "react";
 import Logo from "./Logo";
 import { Button } from "@/components/ui/button";
+import Link from "next/link";
 
 export default function Footer() {
   return (
@@ -11,12 +12,14 @@ export default function Footer() {
             Let’s build Africa’s sustainable mobility ecosystem together. Get in
             touch.
           </h3>
-          <Button className="w-max">Become a captain</Button>
+          <Button className="w-max" asChild>
+            <Link href={"/#become-a-captain"}>Become a captain</Link>
+          </Button>
         </div>
         <div className="flex justify-between flex-col-reverse gap-16 md:flex-row items-center w-full">
           <Logo variant="onBlack" />
 
-          <div className="text-center md:text-right text-gray-400">
+          <div id="contact" className="text-center md:text-right text-gray-400">
             <p>
               Dar es Salaam,
               <br />
@@ -33,7 +36,9 @@ export default function Footer() {
           EkoMobility ©<span>{new Date().getFullYear()}</span>. All rights
           reserved
         </p>
-        <p className="text-[14px]">Made by Francis Kintungi</p>
+        <Link target="_blank" href={"https://www.franciskintungi.com"}>
+          <p className="text-[14px]">Made by Francis Kintungi</p>
+        </Link>
       </div>
     </footer>
   );

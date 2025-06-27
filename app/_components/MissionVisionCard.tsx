@@ -14,7 +14,8 @@ function MissionVisionCard({
 }) {
   return (
     <div
-      className={`bg-primary/50 py-8 gap-8 px-8 rounded-2xl flex flex-col p-6 text-white ${className}`}
+      className={`bg-[#263F69] py-8 gap-8 px-8 rounded-2xl flex flex-col p-6 text-white ${className}`}
+      // className={`bg-primary/50 py-8 gap-8 px-8 rounded-2xl flex flex-col p-6 text-white ${className}`}
     >
       <div className="flex items-center mb-4">
         <Icon variant={icon} />

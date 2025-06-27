@@ -10,7 +10,7 @@ const navLinks = [
   { name: "Why choose us", url: "#why-choose-us" },
   { name: "Impact", url: "#impact" },
   { name: "Contact", url: "#contact" },
-  //   { name: "Become a captain", url: "#become-a-captain" },
+  // { name: "Become a captain", url: "#become-a-captain" },
 ];
 
 export default function Header() {
@@ -101,7 +101,9 @@ export default function Header() {
                 </Link>
               ))}
 
-            <Button>Become a captain</Button>
+            <Button asChild>
+              <Link href={"/#become-a-captain"}>Become a captain</Link>
+            </Button>
             {/* <button className="bg-accent font-medium h-10 px-8 rounded-full text-primary shadow-[0_-12px_34px_0_rgba(247,148,32,0.3),0_12px_34px_0_rgba(247,148,32,0.3),12px_0_34px_0_rgba(247,148,32,0.3),-12px_0_34px_0_rgba(247,148,32,0.3),inset_0_-4px_4px_0_rgba(255,255,255,0.2),inset_0_4px_4px_0_rgba(255,255,255,0.2)]">
               Become a captain
             </button> */}
