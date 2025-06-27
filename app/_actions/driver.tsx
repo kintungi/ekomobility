@@ -4,7 +4,6 @@ import { z } from "zod";
 import { Resend } from "resend";
 import { env } from "@/env.mjs";
 import CaptainSubmissionEmail from "@/emails/CaptainSubmissionEmail";
-// import captainSubmissionEmail  from "@/emails/captainSubmissionEmail";
 
 const resend = new Resend(env.RESEND_API_KEY);
 
