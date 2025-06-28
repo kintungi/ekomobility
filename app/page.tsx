@@ -477,7 +477,7 @@ export default function Home() {
       </section>
       <section
         id="impact"
-        className="margin py-8 md:py-12  grid place-items-center"
+        className="margin py-8 pt-2 md:py-12  grid place-items-center"
       >
         <div className="container flex flex-col ">
           <h2 className="mb-8 md:mb-16 text-center">Our impact</h2>

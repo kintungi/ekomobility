@@ -1,6 +1,6 @@
 "use client";
 import { Button } from "@/components/ui/button";
-import React, { useActionState } from "react";
+import React, { useActionState, useState } from "react";
 import { driverApply } from "../_actions/driver";
 
 function Form() {
@@ -26,9 +26,15 @@ function Form() {
       own_smartphone?: string[];
       heard_about_us?: string[];
     };
+    success?: boolean;
   }
-  const initialState: InitialState = { data: {}, errors: {} };
+  const initialState: InitialState = { data: {}, errors: {}, success: false };
   const [state, action, isPending] = useActionState(driverApply, initialState);
+
+  const [heardAboutUs, setHeardAboutUs] = useState("");
+  const [drivingLicense, setDrivingLicense] = useState("");
+  const [ownSmartphone, setOwnSmartphone] = useState("");
+  const [ridingExperience, setRidingExperience] = useState("");
   return (
     <form
       action={action}
@@ -115,9 +121,12 @@ function Form() {
             </p>
             <div className="relative inline-block w-full">
               <select
+                onChange={(e) => setDrivingLicense(e.target.value)}
                 name="driver_license"
                 id="driver_license"
-                className="input appearance-none text-[#999999] text-[14px] pr-16"
+                className={`input appearance-none  text-[14px] pr-16 ${
+                  drivingLicense ? "text-black" : "text-[#999999]"
+                }`}
                 defaultValue={state?.data?.driver_license as string}
               >
                 <option
@@ -159,9 +168,12 @@ function Form() {
             </p>
             <div className="relative inline-block w-full">
               <select
+                onChange={(e) => setRidingExperience(e.target.value)}
                 name="riding_experience"
                 id="riding_experience"
-                className="input appearance-none text-[#999999] text-[14px] pr-16"
+                className={`input appearance-none  text-[14px] pr-16 ${
+                  ridingExperience ? "text-black" : "text-[#999999]"
+                }`}
                 defaultValue={state?.data.riding_experience as string}
               >
                 <option
@@ -217,9 +229,12 @@ function Form() {
             </p>
             <div className="relative inline-block w-full">
               <select
+                onChange={(e) => setOwnSmartphone(e.target.value)}
                 name="own_smartphone"
                 id="own_smartphone"
-                className="input appearance-none text-[#999999] text-[14px] pr-16"
+                className={`input appearance-none  text-[14px] pr-16 ${
+                  ownSmartphone ? "text-black" : "text-[#999999]"
+                }`}
                 defaultValue={state?.data.own_smartphone as string}
               >
                 <option
@@ -262,15 +277,15 @@ function Form() {
             </p>
             <div className="relative inline-block w-full">
               <select
+                onChange={(e) => setHeardAboutUs(e.target.value)}
                 name="heard_about_us"
                 id="heard_about_us"
-                className="input appearance-none text-[#999999] text-[14px] pr-16"
+                className={`input appearance-none  text-[14px] pr-16 ${
+                  heardAboutUs ? "text-black" : "text-[#999999]"
+                }`}
                 defaultValue={state?.data.heard_about_us as string}
               >
-                <option
-                  value=""
-                  className="text-[#999999] disabled hidden text-[14px]"
-                >
+                <option value="" className="text-[#999999]  hidden text-[14px]">
                   {"Select an option"}
                 </option>
                 <option value={"Social media"}>Social media</option>
@@ -307,9 +322,10 @@ function Form() {
       </div>
 
       <div className="w-full">
-        <Button className="w-full" type="submit">
-          {isPending ? "Submitting" : "Submit"}
+        <Button disabled={state.success} className="w-full" type="submit">
+          {isPending ? "Submitting" : state.success ? "Thank you!" : "Submit"}
         </Button>
+
         {state?.errors?.root && (
           <div className="text-[12px] text-destructive">
             {state.errors.root[0]}
