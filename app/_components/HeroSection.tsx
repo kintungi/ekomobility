@@ -77,7 +77,7 @@ export default function HeroSection() {
   return (
     <div
       ref={container}
-      className="relative w-full h-[calc(100dvh-80px)] flex flex-col justify-between"
+      className="relative w-full h-[calc(100svh-80px)] h-[calc(100svh-80px)]-fallback  flex flex-col justify-between"
     >
       <Swiper
         modules={[Pagination, EffectFade, Autoplay]}
