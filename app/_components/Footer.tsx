@@ -31,13 +31,17 @@ export default function Footer() {
         </div>
       </div>
 
-      <div className="mt-20 text-center flex flex-col gap-2 text-gray-400">
+      <div className="mt-20 text-center  items-center flex flex-col gap-2 text-gray-400">
         <p>
           EkoMobility ©<span>{new Date().getFullYear()}</span>. All rights
           reserved
         </p>
-        <Link target="_blank" href={"https://www.franciskintungi.com"}>
-          <p className="text-[14px]">Made by Francis Kintungi</p>
+        <Link
+          className="opacity-80 shadow-[inset_0_4px_8px_0_rgba(255,255,255,0.2),inset_0_-4px_8px_0_rgba(255,255,255,0.2)] py-[2px] rounded-full w-max px-[12px] bg-white/15"
+          target="_blank"
+          href={"https://www.franciskintungi.com"}
+        >
+          <p className="text-[14px]">Made by @franciskintungi</p>
         </Link>
       </div>
     </footer>

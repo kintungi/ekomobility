@@ -372,7 +372,8 @@ export default function Home() {
       >
         <div className="container flex flex-col items-center gap-6">
           <h2 className="mb-8 md:mb-16 text-center max-w-[448px]">About us</h2>
-          <div className="about hidden  bg-[#F5F0EC] p-8 h-[508px] rounded-[16px] gap-6 md:grid grid-cols-2">
+          <div className="about hidden  bg-[#F8F6F3] border border-black/10 p-8 pl-[48px] h-[508px] rounded-[16px] gap-6 md:grid grid-cols-2">
+            {/* <div className="about hidden  bg-[#F5F0EC] p-8 h-[508px] rounded-[16px] gap-6 md:grid grid-cols-2"> */}
             <div className=" py-8 flex flex-col justify-between">
               <svg
                 width="72"
@@ -397,7 +398,7 @@ export default function Home() {
                 />
               </svg>
 
-              <div className="flex flex-col gap-8">
+              <div className="flex flex-col gap-4">
                 <h3>The Drive Behind Ekomobility</h3>
                 {/* <h2>Get to know more about Ekomobility</h2> */}
                 <p className="text-primary max-w-[480px]">
@@ -417,7 +418,7 @@ export default function Home() {
             />
           </div>
           <div className="about mobile gap-6 flex-col md:hidden   flex">
-            <div className="w-full py-8 flex flex-col bg-[#F5F0EC] p-8 h-[508px] rounded-[16px] gap-6 justify-between">
+            <div className="w-full py-8 flex flex-col bg-[#F8F6F3] p-8 border border-black/10  rounded-[16px] gap-16 justify-between">
               <svg
                 width="72"
                 height="72"
@@ -441,7 +442,7 @@ export default function Home() {
                 />
               </svg>
 
-              <div className="flex flex-col gap-8">
+              <div className="flex flex-col gap-4">
                 <h3>The Drive Behind Ekomobility</h3>
                 {/* <h2>Get to know more about Ekomobility</h2> */}
                 <p className="text-primary">
@@ -474,9 +475,12 @@ export default function Home() {
           </div>
         </div>
       </section>
-      <section id="impact" className="margin py-12  grid place-items-center">
-        <div className="container flex flex-col gap-16">
-          <h2 className="mb-4 text-center">Our impact</h2>
+      <section
+        id="impact"
+        className="margin py-8 md:py-12  grid place-items-center"
+      >
+        <div className="container flex flex-col ">
+          <h2 className="mb-8 md:mb-16 text-center">Our impact</h2>
           <section className="grid grid-cols-1 items-center lg:grid-cols-2 gap-6">
             {/* <section className="flex bg-black flex-col items-center lg:flex-row gap-6"> */}
             <Image

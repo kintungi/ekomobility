@@ -124,11 +124,11 @@ function Icon({ variant }: { variant: IconType }) {
       >
         <path
           d="M34.8584 6.65843L36.5753 11.809L41.7258 13.5258L37.4337 19.5348L29.5158 18.7032L28.8494 10.9506L34.8584 6.65843Z"
-          fill="white"
+          fill="black"
         />
         <path
           d="M42 24C42 33.9411 33.9411 42 24 42C14.0589 42 6 33.9411 6 24C6 14.0589 14.0589 6 24 6M34 24C34 29.5228 29.5228 34 24 34C18.4772 34 14 29.5228 14 24C14 18.4772 18.4772 14 24 14M29.5158 18.7032L37.4337 19.5348L41.7258 13.5258L36.5753 11.809L34.8584 6.65843L28.8494 10.9506L29.5158 18.7032ZM29.5158 18.7032L24.0001 23.9998"
-          stroke="white"
+          stroke="black"
           stroke-width="2"
           stroke-linecap="round"
           stroke-linejoin="round"
@@ -146,14 +146,14 @@ function Icon({ variant }: { variant: IconType }) {
       >
         <path
           d="M29.9976 24C29.9976 27.3137 27.3113 30 23.9976 30C20.6839 30 17.9976 27.3137 17.9976 24C17.9976 20.6863 20.6839 18 23.9976 18C27.3113 18 29.9976 20.6863 29.9976 24Z"
-          stroke="white"
+          stroke="black"
           stroke-width="2"
           stroke-linecap="round"
           stroke-linejoin="round"
         />
         <path
           d="M23.9984 10C15.0432 10 7.46261 15.8858 4.91406 23.9999C7.46257 32.1142 15.0432 38 23.9985 38C32.9537 38 40.5343 32.1142 43.0829 24.0001C40.5343 15.8858 32.9537 10 23.9984 10Z"
-          stroke="white"
+          stroke="black"
           stroke-width="2"
           stroke-linecap="round"
           stroke-linejoin="round"
