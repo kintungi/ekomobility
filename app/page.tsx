@@ -426,8 +426,8 @@ export default function Home() {
       >
         <div className="container flex flex-col items-center gap-6">
           <h2 className="mb-8 md:mb-16 text-center max-w-[448px]">About us</h2>
-          {/* <div className="about hidden  bg-black/50 border border-black/10 p-8 pl-[48px] h-[508px] rounded-[16px] gap-6 md:grid grid-cols-2"> */}
-          <div className="about hidden  bg-[#F8F6F3] border border-black/10 p-8 pl-[48px] h-[508px] rounded-[16px] gap-6 md:grid grid-cols-2">
+          <div className="about hidden  bg-black/50 border border-black/10 p-8 pl-[48px] h-[508px] rounded-[16px] gap-6 md:grid grid-cols-2">
+            {/* <div className="about hidden  bg-[#F8F6F3] border border-black/10 p-8 pl-[48px] h-[508px] rounded-[16px] gap-6 md:grid grid-cols-2"> */}
             {/* <div className="about hidden  bg-[#F5F0EC] p-8 h-[508px] rounded-[16px] gap-6 md:grid grid-cols-2"> */}
             <div className=" py-8 flex flex-col justify-between">
               <svg
@@ -441,12 +441,12 @@ export default function Home() {
                   width="72"
                   height="72"
                   rx="36"
-                  fill="#F79420"
+                  fill="black"
                   fillOpacity="0.2"
                 />
                 <path
                   d="M37.3301 24L26.7555 36.9245C26.3001 37.4812 26.0724 37.7595 26.0703 37.9942C26.0685 38.1982 26.1603 38.3918 26.3194 38.5197C26.5023 38.6667 26.8619 38.6667 27.5811 38.6667H35.9968L34.6635 48L45.2381 35.0755C45.6935 34.5188 45.9212 34.2405 45.9233 34.0058C45.9251 33.8018 45.8333 33.6082 45.6743 33.4803C45.4913 33.3333 45.1317 33.3333 44.4126 33.3333H35.9968L37.3301 24Z"
-                  stroke="black"
+                  stroke="white"
                   strokeWidth="2"
                   strokeLinecap="round"
                   strokeLinejoin="round"
@@ -456,7 +456,8 @@ export default function Home() {
               <div className="flex flex-col gap-4">
                 <h3>The Drive Behind Ekomobility</h3>
                 {/* <h2>Get to know more about Ekomobility</h2> */}
-                <p className="text-primary max-w-[480px]">
+                <p className="text-secondary max-w-[480px]">
+                  {/* <p className="text-primary max-w-[480px]"> */}
                   EkoMobility is a Tanzanian-born platform transforming urban
                   mobility through technology and sustainability. We provide
                   affordable, clean vehicles and digital tools that empower gig
@@ -473,7 +474,8 @@ export default function Home() {
             />
           </div>
           <div className="about mobile gap-6 flex-col md:hidden   flex">
-            <div className="w-full py-8 flex flex-col bg-[#F8F6F3] p-8 border border-black/10  rounded-[16px] gap-16 justify-between">
+            <div className="w-full py-8 flex flex-col bg-black/50 p-8 border border-black/10  rounded-[16px] gap-16 justify-between">
+              {/* <div className="w-full py-8 flex flex-col bg-[#F8F6F3] p-8 border border-black/10  rounded-[16px] gap-16 justify-between"> */}
               <svg
                 width="72"
                 height="72"
@@ -485,12 +487,12 @@ export default function Home() {
                   width="72"
                   height="72"
                   rx="36"
-                  fill="#F79420"
+                  fill="black"
                   fillOpacity="0.2"
                 />
                 <path
                   d="M37.3301 24L26.7555 36.9245C26.3001 37.4812 26.0724 37.7595 26.0703 37.9942C26.0685 38.1982 26.1603 38.3918 26.3194 38.5197C26.5023 38.6667 26.8619 38.6667 27.5811 38.6667H35.9968L34.6635 48L45.2381 35.0755C45.6935 34.5188 45.9212 34.2405 45.9233 34.0058C45.9251 33.8018 45.8333 33.6082 45.6743 33.4803C45.4913 33.3333 45.1317 33.3333 44.4126 33.3333H35.9968L37.3301 24Z"
-                  stroke="black"
+                  stroke="white"
                   strokeWidth="2"
                   strokeLinecap="round"
                   strokeLinejoin="round"
@@ -500,7 +502,8 @@ export default function Home() {
               <div className="flex flex-col gap-4">
                 <h3>The Drive Behind Ekomobility</h3>
                 {/* <h2>Get to know more about Ekomobility</h2> */}
-                <p className="text-primary">
+                <p className="text-secondary">
+                  {/* <p className="text-primary"> */}
                   EkoMobility is a Tanzanian-born platform transforming urban
                   mobility through technology and sustainability. We provide
                   affordable, clean vehicles and digital tools that empower gig
