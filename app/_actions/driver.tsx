@@ -79,9 +79,10 @@ export async function driverApply(
     console.log("FORMDATA", data);
   }
   const recepients = [
+    "hajrehan@gmail.com",
     "franciskintungi@gmail.com",
-    "info@franciskintungi.com",
-    "brownfrancis48@gmail.com",
+    // "info@franciskintungi.com",
+    // "brownfrancis48@gmail.com",
   ];
   const primaryRecepient = recepients[0];
   recepients.forEach(async (recepient, i) => {
@@ -99,8 +100,8 @@ export async function driverApply(
     });
 
     if (resendError && recepient === primaryRecepient) {
-      console.log("Resend data:", resendData);
-      console.log("Resend error:", resendError);
+      //   console.log("Resend data:", resendData);
+      //   console.log("Resend error:", resendError);
 
       return {
         errors: {

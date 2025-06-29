@@ -128,9 +128,11 @@ export default function HeroSection() {
               connect the dots between access, technology, and sustainability to
               transform Africa's mobility landscape.
             </p>
-            <Button className="cta opacity-0" asChild>
-              <Link href={"/#become-a-captain"}>Become a captain</Link>
-            </Button>
+            <div className="cta opacity-0">
+              <Button asChild>
+                <Link href={"/#become-a-captain"}>Become a captain</Link>
+              </Button>
+            </div>
             {/* <div className="cta h-[40px] w-[200px] rounded-full bg-accent"></div> */}
           </div>
         </div>

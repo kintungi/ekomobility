@@ -38,7 +38,7 @@ function FeatureCard({
   if (variant === 2)
     return (
       <div
-        className={`lg:max-w-[320px] w-full bg-[#F8F6F3] border border-primary/10 flex flex-col gap-4 p-4  rounded-2xl ${className}`}
+        className={`xl:max-w-[320px] w-full bg-[#F8F6F3] border border-primary/10 flex flex-col gap-4 p-4  rounded-2xl ${className}`}
         // className={`lg:max-w-[320px] w-full shadow-[inset_0_4px_8px_0_rgba(255,255,255,0.2),inset_0_-4px_8px_0_rgba(255,255,255,0.2)] flex flex-col gap-4 p-4 bg-accent/20 rounded-2xl ${className}`}
       >
         <div className="bg-[rgba(247,148,32,0.15)] grid place-items-center text-white rounded-full w-[72px] h-[72px]">

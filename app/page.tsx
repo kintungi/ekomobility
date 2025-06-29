@@ -516,7 +516,7 @@ export default function Home() {
               src={"/images/highfive.jpeg"}
               width={612}
               height={445}
-              className="rounded-[8px]  object-cover"
+              className="rounded-[8px] aspect-[5/4]  object-cover"
             />
           </div>
           <div className="mission-vision grid grid-cols-1 md:grid-cols-2 w-full gap-6">
@@ -539,10 +539,10 @@ export default function Home() {
       >
         <div className="container flex flex-col ">
           <h2 className="mb-8 md:mb-16 text-center">Our impact</h2>
-          <section className="grid grid-cols-1 items-center lg:grid-cols-2 gap-6">
+          <section className="grid grid-cols-1 items-center xl:grid-cols-2 gap-6">
             {/* <section className="flex bg-black flex-col items-center lg:flex-row gap-6"> */}
             <Image
-              className="object-cover w-full lg:h-full rounded-2xl"
+              className="object-cover aspect-[5/4] md:aspect-auto w-full lg:h-full rounded-2xl"
               src={"/images/graduates.jpeg"}
               alt="graduate drivers"
               height={479}
