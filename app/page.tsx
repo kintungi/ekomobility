@@ -441,14 +441,14 @@ export default function Home() {
                   height="72"
                   rx="36"
                   fill="#F79420"
-                  fill-opacity="0.2"
+                  fillOpacity="0.2"
                 />
                 <path
                   d="M37.3301 24L26.7555 36.9245C26.3001 37.4812 26.0724 37.7595 26.0703 37.9942C26.0685 38.1982 26.1603 38.3918 26.3194 38.5197C26.5023 38.6667 26.8619 38.6667 27.5811 38.6667H35.9968L34.6635 48L45.2381 35.0755C45.6935 34.5188 45.9212 34.2405 45.9233 34.0058C45.9251 33.8018 45.8333 33.6082 45.6743 33.4803C45.4913 33.3333 45.1317 33.3333 44.4126 33.3333H35.9968L37.3301 24Z"
                   stroke="black"
-                  stroke-width="2"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
+                  strokeWidth="2"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
                 />
               </svg>
 
@@ -485,14 +485,14 @@ export default function Home() {
                   height="72"
                   rx="36"
                   fill="#F79420"
-                  fill-opacity="0.2"
+                  fillOpacity="0.2"
                 />
                 <path
                   d="M37.3301 24L26.7555 36.9245C26.3001 37.4812 26.0724 37.7595 26.0703 37.9942C26.0685 38.1982 26.1603 38.3918 26.3194 38.5197C26.5023 38.6667 26.8619 38.6667 27.5811 38.6667H35.9968L34.6635 48L45.2381 35.0755C45.6935 34.5188 45.9212 34.2405 45.9233 34.0058C45.9251 33.8018 45.8333 33.6082 45.6743 33.4803C45.4913 33.3333 45.1317 33.3333 44.4126 33.3333H35.9968L37.3301 24Z"
                   stroke="black"
-                  stroke-width="2"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
+                  strokeWidth="2"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
                 />
               </svg>
 

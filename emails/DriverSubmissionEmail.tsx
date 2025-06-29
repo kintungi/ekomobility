@@ -13,6 +13,7 @@ import * as React from "react";
 
 interface EmailTemplateProps {
   name: string;
+  firstName: string;
   phone: string;
   city: string;
   ward: string;
@@ -24,6 +25,7 @@ interface EmailTemplateProps {
 
 const DriverSubmissionEmail: React.FC<Readonly<EmailTemplateProps>> = ({
   name,
+  firstName,
   phone,
   city,
   ward,
@@ -50,6 +52,17 @@ const DriverSubmissionEmail: React.FC<Readonly<EmailTemplateProps>> = ({
             format: "opentype",
           }}
         />
+        <style>
+          {`
+            .logo-dark { display: none; }
+            .logo-light { display: block; }
+
+            @media (prefers-color-scheme: dark) {
+              .logo-light { display: none; }
+              .logo-dark { display: block; }
+            }
+          `}
+        </style>
       </Head>
       <Body>
         <Container style={{ maxWidth: "460px" }}>
@@ -61,37 +74,38 @@ const DriverSubmissionEmail: React.FC<Readonly<EmailTemplateProps>> = ({
             height={32}
             width={158.6}
             style={{ marginBottom: "64px" }}
+            className="logo-light"
           />
-          <p style={{ lineHeight: "24px" }}>
-            Hi, My name is {name}, I would like to become a captain. Please
+          <p style={{ lineHeight: "24px", color: "black" }}>
+            Hi, My name is {firstName}, I would like to become a captain. Please
             checkout my details below.
           </p>
           <Container style={{ gap: "0px" }}>
-            <p style={{ lineHeight: "16px" }}>
+            <p style={{ lineHeight: "16px", color: "black" }}>
               <span style={{ color: "gray" }}>Full name:</span> {name}
             </p>
-            <p>
+            <p style={{ lineHeight: "16px", color: "black" }}>
               <span style={{ color: "gray" }}>Phone number:</span> {phone}
             </p>
-            <p style={{ lineHeight: "16px" }}>
+            <p style={{ lineHeight: "16px", color: "black" }}>
               <span style={{ color: "gray" }}>City / Town:</span> {city}
             </p>
-            <p style={{ lineHeight: "16px" }}>
+            <p style={{ lineHeight: "16px", color: "black" }}>
               <span style={{ color: "gray" }}>Ward / Area:</span> {ward}
             </p>
-            <p style={{ lineHeight: "16px" }}>
+            <p style={{ lineHeight: "16px", color: "black" }}>
               <span style={{ color: "gray" }}>Driving license?:</span>{" "}
               {driver_license}
             </p>
-            <p style={{ lineHeight: "16px" }}>
+            <p style={{ lineHeight: "16px", color: "black" }}>
               <span style={{ color: "gray" }}>Riding experience?:</span>{" "}
               {riding_experience} years
             </p>
-            <p style={{ lineHeight: "16px" }}>
+            <p style={{ lineHeight: "16px", color: "black" }}>
               <span style={{ color: "gray" }}>Owning smartphone?:</span>{" "}
               {own_smartphone}
             </p>
-            <p style={{ lineHeight: "16px" }}>
+            <p style={{ lineHeight: "16px", color: "black" }}>
               <span style={{ color: "gray" }}>How did you hear about us?:</span>{" "}
               {heard_about_us}
             </p>

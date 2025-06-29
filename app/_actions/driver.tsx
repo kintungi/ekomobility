@@ -78,42 +78,55 @@ export async function driverApply(
   if (success) {
     console.log("FORMDATA", data);
   }
+  const recepients = [
+    "franciskintungi@gmail.com",
+    "info@franciskintungi.com",
+    "brownfrancis48@gmail.com",
+  ];
+  const primaryRecepient = recepients[0];
+  recepients.forEach(async (recepient, i) => {
+    const { data: resendData, error: resendError } = await resend.emails.send({
+      from: "EkoMobility <updates@driver.ekomobility.co>",
+      //   from: "Acme <onboarding@resend.dev>",
+      to: [recepient],
+      //   to: ["delivered@resend.dev"],
+      subject: "Form submission(ekomobility.co)",
+      react: await DriverSubmissionEmail({
+        ...data,
+        firstName: data.name.split(" ")[0] ?? data.name,
+      }),
+      //   react: await EmailTemplate({ ...data }),
+    });
 
-  const { data: resendData, error: resendError } = await resend.emails.send({
-    from: "EkoMobility <onboarding@resend.dev>",
-    //   from: "Acme <onboarding@resend.dev>",
-    to: ["franciskintungi@gmail.com"],
-    //   to: ["delivered@resend.dev"],
-    subject: "Form submission(ekomobility.co)",
-    react: await DriverSubmissionEmail({ ...data }),
-    //   react: await EmailTemplate({ ...data }),
+    if (resendError && recepient === primaryRecepient) {
+      console.log("Resend data:", resendData);
+      console.log("Resend error:", resendError);
+
+      return {
+        errors: {
+          root: ["Error occured while trying to submit form"],
+          name: [],
+          phone: [],
+          city: [],
+          ward: [],
+          driver_license: [],
+          riding_experience: [],
+          own_smartphone: [],
+          heard_about_us: [],
+        },
+        data: {
+          name: "",
+          phone: "",
+          city: "",
+          ward: "",
+          driver_license: "",
+          riding_experience: "",
+          own_smartphone: "",
+          heard_about_us: "",
+        },
+      };
+    }
   });
-
-  if (resendError) {
-    return {
-      errors: {
-        root: ["Failed to submit"],
-        name: [],
-        phone: [],
-        city: [],
-        ward: [],
-        driver_license: [],
-        riding_experience: [],
-        own_smartphone: [],
-        heard_about_us: [],
-      },
-      data: {
-        name: "",
-        phone: "",
-        city: "",
-        ward: "",
-        driver_license: "",
-        riding_experience: "",
-        own_smartphone: "",
-        heard_about_us: "",
-      },
-    };
-  }
 
   return {
     errors: {

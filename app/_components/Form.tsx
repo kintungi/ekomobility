@@ -1,6 +1,6 @@
 "use client";
 import { Button } from "@/components/ui/button";
-import React, { useActionState, useState } from "react";
+import React, { useActionState, useEffect, useState } from "react";
 import { driverApply } from "../_actions/driver";
 
 function Form() {
@@ -35,6 +35,14 @@ function Form() {
   const [drivingLicense, setDrivingLicense] = useState("");
   const [ownSmartphone, setOwnSmartphone] = useState("");
   const [ridingExperience, setRidingExperience] = useState("");
+
+  useEffect(() => {
+    setHeardAboutUs("");
+    setDrivingLicense("");
+    setOwnSmartphone("");
+    setRidingExperience("");
+  }, [state.success]);
+
   return (
     <form
       action={action}
@@ -150,8 +158,8 @@ function Form() {
                     d="M5 7.5L10 12.5L15 7.5"
                     stroke="#999999"
                     strokeWidth="2"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
                   />
                 </svg>
               </div>
@@ -207,8 +215,8 @@ function Form() {
                     d="M5 7.5L10 12.5L15 7.5"
                     stroke="#999999"
                     strokeWidth="2"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
                   />
                 </svg>
               </div>
@@ -258,8 +266,8 @@ function Form() {
                     d="M5 7.5L10 12.5L15 7.5"
                     stroke="#999999"
                     strokeWidth="2"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
                   />
                 </svg>
               </div>
@@ -307,8 +315,8 @@ function Form() {
                     d="M5 7.5L10 12.5L15 7.5"
                     stroke="#999999"
                     strokeWidth="2"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
                   />
                 </svg>
               </div>
@@ -319,6 +327,55 @@ function Form() {
               </div>
             )}
           </div>
+          {/* <div className="delete input-wrapper">
+            <p className="form-input-title">
+              How did you hear about us? (Social Media, Word of Mouth, Referral,
+              Roadshow, Other) / Ni wapi ulisikia kuhusu sisi?
+            </p>
+            <div className="relative inline-block w-full">
+              <select
+                name="test"
+                id="heard_about_us"
+                className={`input appearance-none  text-[14px] pr-16 ${
+                  heardAboutUs ? "text-black" : "text-[#999999]"
+                }`}
+                defaultValue={state?.data.heard_about_us as string}
+                // defaultValue={state?.data.heard_about_us as string}
+              >
+                <option value="" className="text-[#999999]  hidden text-[14px]">
+                  {"Select an option"}
+                </option>
+                <option value={"Social media"}>Social media</option>
+                <option value={"Word of mouth"}>Word of mouth</option>
+                <option value={"Referral"}>Referral</option>
+                <option value={"Roadshow"}>Roadshow</option>
+                <option value={"Other"}>Other</option>
+              </select>
+              <div className="absolute right-2 top-1/2 transform -translate-y-1/2 pointer-events-none">
+                <svg
+                  width="20"
+                  height="20"
+                  viewBox="0 0 20 20"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M5 7.5L10 12.5L15 7.5"
+                    stroke="#999999"
+                    strokeWidth="2"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                  />
+                </svg>
+              </div>
+            </div>
+            <div>{state?.data.heard_about_us as string}</div>
+            {state?.errors?.heard_about_us && (
+              <div className="text-[12px] text-destructive">
+                {state.errors.heard_about_us[0]}
+              </div>
+            )}
+          </div> */}
         </section>
       </div>
 
@@ -328,7 +385,7 @@ function Form() {
         </Button>
 
         {state?.errors?.root && (
-          <div className="text-[12px] text-destructive">
+          <div className="text-[12px] mt-4 text-destructive">
             {state.errors.root[0]}
           </div>
         )}
