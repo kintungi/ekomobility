@@ -37,7 +37,7 @@ export default function Footer() {
           reserved
         </p>
         <Link
-          className="opacity-60 shadow-[inset_0_4px_8px_0_rgba(255,255,255,0.2),inset_0_-4px_8px_0_rgba(255,255,255,0.2)] py-[2px] rounded-full w-max px-[12px] bg-white/15"
+          className="opacity-70 shadow-[inset_0_4px_8px_0_rgba(255,255,255,0.2),inset_0_-4px_8px_0_rgba(255,255,255,0.2)] py-[2px] rounded-full w-max px-[12px] bg-white/15"
           target="_blank"
           href={"https://www.franciskintungi.com"}
         >

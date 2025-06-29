@@ -1,20 +1,12 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono, Maven_Pro } from "next/font/google";
+import { Maven_Pro } from "next/font/google";
 import "./globals.css";
 import Header from "./_components/Header";
 import Footer from "./_components/Footer";
+import { Analytics } from "@vercel/analytics/next";
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
-  subsets: ["latin"],
-});
 const mavenSans = Maven_Pro({
   variable: "--font-maven",
-  subsets: ["latin"],
-});
-
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
   subsets: ["latin"],
 });
 
@@ -34,6 +26,7 @@ export default function RootLayout({
         <Header />
         <div className="pt-20">{children}</div>
         <Footer />
+        <Analytics />
       </body>
     </html>
   );

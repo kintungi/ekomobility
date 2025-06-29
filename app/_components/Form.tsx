@@ -284,6 +284,7 @@ function Form() {
                   heardAboutUs ? "text-black" : "text-[#999999]"
                 }`}
                 defaultValue={state?.data.heard_about_us as string}
+                // defaultValue={state?.data.heard_about_us as string}
               >
                 <option value="" className="text-[#999999]  hidden text-[14px]">
                   {"Select an option"}

@@ -36,7 +36,7 @@ export default function Home() {
           isDesktop: "(min-width: 1024px)",
         },
         (ctx) => {
-          const { isMobile, isTablet } = ctx.conditions as {
+          const { isMobile, isTablet, isDesktop } = ctx.conditions as {
             isMobile: boolean;
             isTablet: boolean;
             isDesktop: boolean;
@@ -134,33 +134,87 @@ export default function Home() {
             });
 
           //Impact
-          gsap.utils
-            .toArray<HTMLElement>(".feature-card-two")
-            .forEach((card, i) => {
-              const tl = gsap.timeline({
-                scrollTrigger: {
-                  trigger: card,
-                  start: cardTriggerStart,
-                  toggleActions: "play none play reverse", // or "play reset play reset"
-                  // markers: true,
-                },
-              });
+          if (isDesktop) {
+            const impactTl = gsap.timeline({
+              scrollTrigger: {
+                trigger: ".feature-cards-two-container",
+                start: cardTriggerStart,
+                toggleActions: "play none play reverse",
+                // markers: true,
+              },
+            });
 
-              // set custom delay using position inside the timeline
-              const delay = i === 1 || i === 3 ? 0.1 : 0;
-
-              tl.from(
-                card,
+            impactTl
+              .from(
+                ".impact-card-1",
                 {
                   autoAlpha: 0,
                   y: 64,
                   duration: 0.6,
                   ease: "power1.inOut",
                 },
-                delay
-              ); // 👈 delay as timeline position
-            });
+                0
+              )
+              .from(
+                ".impact-card-2",
+                {
+                  autoAlpha: 0,
+                  y: 64,
+                  duration: 0.6,
+                  ease: "power1.inOut",
+                },
+                0.1
+              )
+              .from(
+                ".impact-card-3",
+                {
+                  autoAlpha: 0,
+                  y: 64,
+                  duration: 0.6,
+                  ease: "power1.inOut",
+                },
+                0.2
+              )
+              .from(
+                ".impact-card-4",
+                {
+                  autoAlpha: 0,
+                  y: 64,
+                  duration: 0.6,
+                  ease: "power1.inOut",
+                },
+                0.3
+              );
+          }
 
+          if (isMobile || isTablet) {
+            gsap.utils
+              .toArray<HTMLElement>(".feature-card-two")
+              .forEach((card, i) => {
+                const tl = gsap.timeline({
+                  scrollTrigger: {
+                    trigger: card,
+                    start: cardTriggerStart,
+                    toggleActions: "play none play reverse", // or "play reset play reset"
+                    // markers: true,
+                  },
+                });
+
+                // set custom delay using position inside the timeline
+                const delay = i === 1 || i === 3 ? 0.1 : 0;
+
+                tl.from(
+                  card,
+                  {
+                    autoAlpha: 0,
+                    y: 64,
+                    duration: 0.6,
+                    ease: "power1.inOut",
+                  },
+                  delay
+                ); // 👈 delay as timeline position
+              });
+          }
           //Why choose us
           gsap.utils
             .toArray<HTMLElement>(".feature-card-three")
@@ -335,7 +389,7 @@ export default function Home() {
       </section>
       <section
         id="solutions"
-        className="solutions bg-primary margin py-[96px] grid place-items-center gap-16 relative"
+        className="solutions scroll-mt-[80px] bg-primary margin py-[96px] grid place-items-center gap-16 relative"
       >
         <Image
           alt="blur"
@@ -368,7 +422,7 @@ export default function Home() {
       </section>
       <section
         id="about"
-        className="about-us bg-white margin grid place-items-center py-16"
+        className="about-us scroll-mt-[80px] bg-white margin grid place-items-center py-16"
       >
         <div className="container flex flex-col items-center gap-6">
           <h2 className="mb-8 md:mb-16 text-center max-w-[448px]">About us</h2>
@@ -461,7 +515,7 @@ export default function Home() {
               className="rounded-[8px]  object-cover"
             />
           </div>
-          <div className="mission-vision grid grid-cols-1 lg:grid-cols-2 w-full gap-6">
+          <div className="mission-vision grid grid-cols-1 md:grid-cols-2 w-full gap-6">
             {about &&
               about.map((item, i) => (
                 <MissionVisionCard
@@ -477,7 +531,7 @@ export default function Home() {
       </section>
       <section
         id="impact"
-        className="margin py-8 pt-2 md:py-12  grid place-items-center"
+        className="margin py-8 pt-2 scroll-mt-[96px] md:py-12  grid place-items-center"
       >
         <div className="container flex flex-col ">
           <h2 className="mb-8 md:mb-16 text-center">Our impact</h2>
@@ -490,11 +544,11 @@ export default function Home() {
               height={479}
               width={662}
             />
-            <div className="grid grid-cols-1 md:grid-cols-2 grid-rows-2 gap-6">
+            <div className="grid feature-cards-two-container grid-cols-1 md:grid-cols-2 grid-rows-2 gap-6">
               {impact &&
                 impact.map((item, i) => (
                   <FeatureCard
-                    className="w-full feature-card-two"
+                    className={`w-full feature-card-two impact-card-${i + 1}`}
                     variant={2}
                     key={i}
                     description={item.desc}
@@ -563,7 +617,7 @@ export default function Home() {
       </section>
       <section
         id="why-choose-us"
-        className="why-choose-us margin bg-primary py:8 md:py-16 grid place-items-center"
+        className="why-choose-us scroll-mt-[96px] margin bg-primary py:8 md:py-16 grid place-items-center"
       >
         <div className="container grid gap-16 place-items-center">
           <h2 className="text-center">Why choose us</h2>
@@ -584,7 +638,7 @@ export default function Home() {
       </section>
       <section
         id="become-a-captain"
-        className="form margin py-16 bg-white grid gap-16 place-items-center text-center"
+        className="form margin scroll-mt-[80px] py-16 bg-white grid gap-16 place-items-center text-center"
       >
         <div className="max-w-[464px] flex flex-col gap-6">
           <h2 className="">Join us today, become a captain</h2>
