@@ -426,6 +426,7 @@ export default function Home() {
       >
         <div className="container flex flex-col items-center gap-6">
           <h2 className="mb-8 md:mb-16 text-center max-w-[448px]">About us</h2>
+          {/* <div className="about hidden  bg-black/50 border border-black/10 p-8 pl-[48px] h-[508px] rounded-[16px] gap-6 md:grid grid-cols-2"> */}
           <div className="about hidden  bg-[#F8F6F3] border border-black/10 p-8 pl-[48px] h-[508px] rounded-[16px] gap-6 md:grid grid-cols-2">
             {/* <div className="about hidden  bg-[#F5F0EC] p-8 h-[508px] rounded-[16px] gap-6 md:grid grid-cols-2"> */}
             <div className=" py-8 flex flex-col justify-between">
