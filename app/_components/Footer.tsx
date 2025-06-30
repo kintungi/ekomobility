@@ -19,14 +19,19 @@ export default function Footer() {
         <div className="flex justify-between flex-col-reverse gap-16 md:flex-row items-center w-full">
           <Logo variant="onBlack" />
 
-          <div id="contact" className="text-center md:text-right text-gray-400">
+          <div
+            id="contact"
+            className="text-center flex flex-col md:flex-row gap-8 md:gap-16 md:text-right text-gray-400"
+          >
             <p>
               Dar es Salaam,
               <br />
               Tanzania
             </p>
-            <p>+255 (0) 674 648 966</p>
-            <p>info@ekomobility.co</p>
+            <div>
+              <p>+255 (0) 674 648 966</p>
+              <p>info@ekomobility.co</p>
+            </div>
           </div>
         </div>
       </div>
@@ -37,7 +42,7 @@ export default function Footer() {
           reserved
         </p>
         <Link
-          className="opacity-60 shadow-[inset_0_4px_8px_0_rgba(255,255,255,0.2),inset_0_-4px_8px_0_rgba(255,255,255,0.2)] py-[2px] rounded-full w-max px-[12px] bg-white/15"
+          className="opacity-70 shadow-[inset_0_4px_8px_0_rgba(255,255,255,0.2),inset_0_-4px_8px_0_rgba(255,255,255,0.2)] py-[2px] rounded-full w-max px-[12px] bg-white/15"
           target="_blank"
           href={"https://www.franciskintungi.com"}
         >
