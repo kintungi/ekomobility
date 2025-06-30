@@ -357,7 +357,7 @@ export default function Home() {
                   duration: 0.6,
                   ease: "power1.inOut",
                 },
-                isDesktop && isTablet ? delay : 0
+                isDesktop || isTablet ? delay : 0
               ); // 👈 delay as timeline position
             });
         }
