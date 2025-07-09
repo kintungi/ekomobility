@@ -18,7 +18,7 @@ function NotFound() {
     <div className="text-defaultText  fixed left-0 margin  top-0 z-[99999] grid h-screen w-full items-center md:place-items-center bg-white">
       <div className=" rounded-3xl  bg-black/2 border border-black/10 margin py-16">
         <Logo variant="onWhite" />
-        <h1 className=" mb-[32px] mt-16 text-4xl   md:text-5xl">
+        <h1 className=" mb-[32px] mt-16 text-4xl md:text-5xl">
           Page not found.
         </h1>
         <div>

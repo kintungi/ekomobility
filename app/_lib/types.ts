@@ -6,5 +6,7 @@ export type IconType =
   | "eye"
   | "money-cheque"
   | "handshake"
+  | "bolt-white"
   | "target"
+  | "paper-check"
   | "bolt";
