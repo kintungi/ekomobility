@@ -1,14 +1,15 @@
-"use client"
+"use client";
 
 import React from "react";
 import Logo from "./Logo";
 import { Button } from "@/components/ui/button";
 import Link from "next/link";
+import MapEmbed from "./MapEmbed";
 
 export default function Footer() {
   return (
     <footer className="bg-black text-white py-16 px-4 md:px-8 lg:px-16 grid place-items-center">
-      <div className="flex flex-col justify-between items-center w-full gap-16 container">
+      <div className="flex flex-col justify-between items-center w-full gap-[128px] container">
         <div className="flex md:justify-between flex-col gap-16 items-center md:flex-row w-full">
           <h3 className="max-w-[512.69px] text-center md:text-left">
             Let’s build Africa’s sustainable mobility ecosystem together. Get in
@@ -18,22 +19,34 @@ export default function Footer() {
             <Link href={"/#become-a-captain"}>Become a captain</Link>
           </Button>
         </div>
-        <div className="flex justify-between flex-col-reverse gap-16 md:flex-row items-center w-full">
-          <Logo variant="onBlack" />
+        <div className="flex justify-between flex-col-reverse gap-16 md:flex-row items-center md:items-start w-full">
+          <div className="md:w-full">
+            <Logo variant="onBlack" />
+          </div>
 
           <div
             id="contact"
-            className="text-center flex flex-col md:flex-row gap-8 md:gap-16 md:text-right text-gray-400"
+            className="text-center flex flex-col w-full  gap-8 md:gap-16 md:text-left text-gray-400"
           >
-            <p>
-              Dar es Salaam,
-              <br />
-              Tanzania
-            </p>
-            <div>
-              <p>+255 (0) 674 648 966</p>
-              <p>info@ekomobility.co</p>
+            <div className="w-full flex flex-col md:flex-row justify-between ">
+              <p>
+                Head Office
+                <br />
+                Plot No. 127,
+                <br />
+                Kingsway Estate,
+                <br />
+                Mafinga Street, Kinondoni,
+                <br />
+                Dar es Salaam, Tanzania
+              </p>
+
+              <div>
+                <p>+255 (0) 674 648 966</p>
+                <p>info@ekomobility.co</p>
+              </div>
             </div>
+            <MapEmbed />
           </div>
         </div>
       </div>
