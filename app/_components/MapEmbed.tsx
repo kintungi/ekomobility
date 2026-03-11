@@ -8,7 +8,7 @@ export default function MapEmbed() {
   return (
     <div
       // 1. Logic: If isLoading is true, add 'animate-pulse'. If false, remove it.
-      className={`w-full h-[450px] bg-surface-tertiary-variant md:h-[450px] md:w-full rounded-[16px] overflow-hidden ${
+      className={`w-full h-[450px] bg-white/10 md:h-[450px] md:w-full rounded-[16px] overflow-hidden ${
         isLoading ? "animate-pulse" : ""
       }`}
     >
